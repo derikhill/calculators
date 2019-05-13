@@ -1,0 +1,240 @@
+$fonts: Helvetica, sans-serif;
+$title-color: #006ea0;
+$blue: #0077c0;
+$grey: #cacaca;
+$min-width: 768px;
+$totals: #3e3d3f;
+$error: #da3535;
+
+body {
+    max-width: 900px;
+    margin: auto;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: column;
+}
+
+[type='text'], [type='number'] {
+    width: 100%;
+    box-sizing: border-box;
+    height: 2.5rem;
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: $fonts;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.app-title-section {
+    border-bottom: 1px solid $grey;
+    width: 100%;
+    margin: 0 0.75rem 1.25rem;
+
+    h5 {
+        color: $title-color;
+    }
+}
+  
+.app-title {
+    font-family: $fonts;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    
+}
+
+.calculator-container {
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.1);
+    padding: 1.25em;
+    border-radius: 4px;
+    max-width: 470px;
+    margin: 0 0.75rem;
+
+    .instructions {
+        font-family: $fonts;
+        font-size: 0.75em;
+        font-weight: normal;
+        line-height: 1.8;
+        color: #3e3d3f;
+        border-bottom: 1px solid $grey;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .slide {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        label {
+            width: 10%;
+            max-width: 24px;
+            padding: 0.25em;
+            margin: 0.2rem;
+            font-size: 0.875rem;
+            font-weight: normal;
+            line-height: 1.8;
+            color: #0a0a0a; 
+          
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            background: transparent;
+            width: 60%;
+            overflow: hidden;
+            // height: 0.5rem;
+            margin-top: 0.8rem;
+            margin-bottom: 2.25rem;
+            border-radius: 8px;
+            background-color: $grey;
+            outline: none;          
+        }
+
+        input[type='range']::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 0.5rem;
+            cursor: pointer;
+            background: $grey;
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: 1px solid $grey;
+            height: 24px;
+            width: 24px;
+            margin-top: -8px;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: -270px 0 0 260px $blue;
+
+        }
+
+        .value {
+            width: 20%;
+        }
+    }
+
+    label {
+        font-family: $fonts;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .loan-amount {
+        margin-left: 0.28125rem;
+        margin-right: 0.28125rem;
+
+        .error {
+            border: 1px solid $error;
+        }
+    }
+
+    .annual {
+        display: flex;
+        flex-flow: row;
+
+        div {
+            width: 49%;
+            margin-left: 0.28125rem;
+            margin-right: 0.28125rem;
+        }
+
+        .error {
+            border: 1px solid $error;
+        }
+    }
+
+    button {
+        width: 98%;
+        box-sizing: border-box;
+        height: 2.5rem;
+        margin: 0 0.25rem 1rem;
+        padding: 0.5rem;
+        border: 1px solid $blue;
+        border-radius: 4px;
+        background-color: $blue;
+        font-family: $fonts;
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.results-container {
+    transition:height 1s ease-out;
+    height:0;
+    overflow:hidden;
+    background: #eaf6fa;
+    max-width: 300px;
+    padding: 0 1.5rem;
+    margin: 0 0.75rem 1rem;
+    
+    h5 {
+        color: $totals;
+        margin-top: 1.2rem;
+    }
+    
+    .instructions {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $grey;
+        
+        .total {
+            border-bottom: 0;
+        }
+        
+        h4 {
+            font-family: $fonts;
+            font-weight: bold;
+            line-height: 1.8;
+            color: $totals;
+            margin-top: 0.25rem;
+            font-size: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        p, h5 {
+            font-family: $fonts;
+            font-size: 0.75em;
+            font-weight: normal;
+            line-height: 1.8;
+            color: #3e3d3f;
+            width: 100%;
+            margin-bottom: 1rem; 
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .app-body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .results-container {
+        height: 440px;
+        width: 300px;
+        margin: 1rem 1.5rem 1rem -0.75rem;
+
+        .instructions {
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+
+            h5 {
+                margin-top: 0;
+            }
+        }
+    }
+}
