@@ -190,11 +190,7 @@ body {
         display: flex;
         flex-direction: row;
         border-bottom: 1px solid $grey;
-        
-        .total {
-            border-bottom: 0;
-        }
-        
+            
         h4 {
             font-family: $fonts;
             font-weight: bold;
@@ -204,7 +200,7 @@ body {
             font-size: 1.5rem;
             padding-bottom: 1.5rem;
         }
-
+        
         p, h5 {
             font-family: $fonts;
             font-size: 0.75em;
@@ -214,6 +210,10 @@ body {
             width: 100%;
             margin-bottom: 1rem; 
         }
+    }
+
+    .total {
+        border-bottom: 0;
     }
 }
 

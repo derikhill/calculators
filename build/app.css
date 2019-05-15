@@ -163,9 +163,6 @@ body {
   flex-direction: row;
   border-bottom: 1px solid #cacaca;
 }
-.results-container .instructions .total {
-  border-bottom: 0;
-}
 .results-container .instructions h4 {
   font-family: Helvetica, sans-serif;
   font-weight: bold;
@@ -183,6 +180,9 @@ body {
   color: #3e3d3f;
   width: 100%;
   margin-bottom: 1rem;
+}
+.results-container .total {
+  border-bottom: 0;
 }
 
 @media only screen and (min-width: 768px) {
