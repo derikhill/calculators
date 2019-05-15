@@ -11,9 +11,8 @@ rate.oninput = () => {
 }
 
 let calculateMonthlyPayment = (loanAmount, yearsValue, rate) => {
-    let monthlyRate = rate / 100 / 12;
-    let monthlyPayment = loanAmount * monthlyRate / 
-                            (1 - (Math.pow(1/(1 + monthlyRate), yearsValue * 12)));
+    let monthlyRate = (rate / 100) / 12;
+    let monthlyPayment = monthlyRate * loanAmount / (1-Math.pow((1 + monthlyRate), -yearsValue * 12));
     return {loanAmount, yearsValue, rate, monthlyPayment};
 };
 
@@ -42,17 +41,17 @@ calculate.addEventListener('click', () => {
         let loanAmount = document.getElementById('loan-amount').value;
         let taxes = document.getElementById('annual-tax').value;
         let insurance = document.getElementById('annual-insurance').value;
-        let {monthlyPayment} = calculateMonthlyPayment(yearsValue, rate, loanAmount, taxes, insurance);
+        let {monthlyPayment} = calculateMonthlyPayment(loanAmount, yearsValue, rate);
         
         let annualTaxes = taxes / 12;
         let annualInsurance = insurance / 12;
         let total = annualTaxes + annualInsurance + monthlyPayment;
         window.screen.availWidth >= "768" ? (document.getElementById("small-results").style.height =  "440px") : (document.getElementById("small-results").style.height =  "290px");
             
-        document.getElementById('principal').innerHTML = `$` + monthlyPayment.toFixed(2);
-        document.getElementById('tax').innerHTML = `$` + annualTaxes.toFixed(2);
-        document.getElementById('insurance').innerHTML = `$` + annualInsurance.toFixed(2);
-        document.getElementById('total').innerHTML = `$` + total.toFixed(2);
+        document.getElementById('principal').innerHTML = `$${monthlyPayment.toFixed(2)}`;
+        document.getElementById('tax').innerHTML = `$${annualTaxes.toFixed(2)}`;
+        document.getElementById('insurance').innerHTML = `$${annualInsurance.toFixed(2)}`;
+        document.getElementById('total').innerHTML = `$${total.toFixed(2)}`;
         calculate.innerHTML = "RECALCULATE";
     }
 
